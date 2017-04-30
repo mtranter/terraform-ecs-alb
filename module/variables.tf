@@ -2,8 +2,12 @@ variable "ecs_cluster_name" {
   default = "ecs-alb-cluster"
 }
 
-variable "with-cloudwatch" {
+variable "with_cloudwatch" {
   default = "true"
+}
+
+variable "instance_name_prefix" {
+  default = ""
 }
 
 variable "ecs-alb-log-bucket" {

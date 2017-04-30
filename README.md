@@ -7,6 +7,5 @@ module "ecs_alb" {
   ecs-alb-log-bucket      = "mtranter.io"
   key_name                = "my-key"
   aws_region              = "eu-west-1"
-
 }
 ```

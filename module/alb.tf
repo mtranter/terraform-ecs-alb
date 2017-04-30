@@ -1,7 +1,7 @@
 data "aws_elb_service_account" "main" {}
 
 resource "aws_s3_bucket" "alb_log_bucket" {
-  count  = "${var.with-cloudwatch == "true" ? 1 : 0}"
+  count  = "${var.with_cloudwatch == "true" ? 1 : 0}"
   bucket = "${var.ecs-alb-log-bucket}"
   acl    = "private"
 
@@ -33,7 +33,7 @@ resource "aws_alb" "ecs-alb" {
   security_groups = ["${aws_security_group.lb_sg.id}"]
 
   access_logs {
-    enabled   = "${var.with-cloudwatch == "true"}"
+    enabled   = "${var.with_cloudwatch == "true"}"
     bucket    = "${aws_s3_bucket.alb_log_bucket.bucket}"
   }
 }

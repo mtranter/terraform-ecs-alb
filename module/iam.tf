@@ -79,7 +79,7 @@ data "template_file" "instance_profile" {
 }
 
 resource "aws_iam_role_policy" "instance" {
-  count  = "${var.with-cloudwatch == "true" ? 1 : 0}"
+  count  = "${var.with_cloudwatch == "true" ? 1 : 0}"
   name   = "EcsAlbInstanceIam"
   role   = "${aws_iam_role.app_instance.name}"
   policy = "${data.template_file.instance_profile.rendered}"

@@ -22,6 +22,7 @@ resource "aws_launch_configuration" "ecs-alb-lc" {
     "${aws_security_group.instance_sg.id}"
   ]
 
+  name_prefix                 = "${var.instance_name_prefix}"
   key_name                    = "${var.key_name}"
   image_id                    = "${coalesce(var.image_id, var.images[var.aws_region])}"
   instance_type               = "${var.instance_type}"
