@@ -36,6 +36,6 @@ resource "aws_alb" "ecs-alb" {
 
   access_logs {
     enabled   = "${var.with_cloudwatch == "true"}"
-    bucket    = "${aws_s3_bucket.alb_log_bucket.bucket}"
+    bucket    = "${var.ecs-alb-log-bucket}"
   }
 }
