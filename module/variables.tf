@@ -6,6 +6,10 @@ variable "with_cloudwatch" {
   default = "true"
 }
 
+variable "alb_name" {
+  default = "ecs-alb-front-end"
+}
+
 variable "instance_name_prefix" {
   default = ""
 }
