@@ -29,3 +29,7 @@ output "ecs_cluster_id" {
 output "vpc_id" {
   value = "${aws_vpc.ecs-alb.id}"
 }
+
+output "service_iam_role_arn" {
+  value = "${aws_iam_role.ecs_service.arn}"
+}
