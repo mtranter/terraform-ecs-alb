@@ -72,6 +72,7 @@ variable "vpc_cidr_block" {
 variable "az_count" {
     default = ""
 }
+
 variable "admin_cidr_ingress" {
   description = "CIDR to allow tcp/22 ingress to EC2 instance"
   default = "80.7.136.0/24"
