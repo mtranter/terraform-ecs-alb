@@ -25,6 +25,8 @@ resource "aws_s3_bucket" "alb_log_bucket" {
   ]
 }
 POLICY
+
+  depends_on = ["aws_alb.ecs-alb"]
 }
 
 resource "aws_alb" "ecs-alb" {
