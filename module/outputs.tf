@@ -33,3 +33,7 @@ output "vpc_id" {
 output "service_iam_role_arn" {
   value = "${aws_iam_role.ecs_service.arn}"
 }
+
+output "instance_security_group_id" {
+  value - "${aws_security_group.instance_sg.id}"
+}
