@@ -70,7 +70,7 @@ variable "cloudwatch_ecs_loggroup_name" {
 }
 
 variable "cloudwatch_apps_loggroup_name" {
-  default = "ecs-alb-group/apps-agent"
+  default = "ecs-alb-group/apps"
 }
 
 variable "vpc_cidr_block" {
@@ -83,5 +83,8 @@ variable "az_count" {
 
 variable "admin_cidr_ingress" {
   description = "CIDR to allow tcp/22 ingress to EC2 instance"
-  default = "80.7.136.0/24"
+}
+
+variable "launch_config_name_prefix" {
+  default = "ecs-alb-lc"
 }

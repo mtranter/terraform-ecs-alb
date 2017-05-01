@@ -5,6 +5,12 @@ resource "aws_autoscaling_group" "ecs-alb-asg" {
   max_size             = "${var.max_instances}"
   desired_capacity     = "${var.desired_instances}"
   launch_configuration = "${aws_launch_configuration.ecs-alb-lc.name}"
+
+  tag {
+        key = "Name"
+        value = "${var.instance_name_prefix}"
+        propagate_at_launch = true
+    }
 }
 
 data "template_file" "ecs_config" {
@@ -22,7 +28,7 @@ resource "aws_launch_configuration" "ecs-alb-lc" {
     "${aws_security_group.instance_sg.id}"
   ]
 
-  name_prefix                 = "${var.instance_name_prefix}"
+  name_prefix                 = "${var.launch_config_name_prefix}"
   key_name                    = "${var.key_name}"
   image_id                    = "${coalesce(var.image_id, var.images[var.aws_region])}"
   instance_type               = "${var.instance_type}"
